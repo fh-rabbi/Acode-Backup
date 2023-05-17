@@ -1,0 +1,3677 @@
+# CUSTOM snippets
+
+snippet fetchapi
+	const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signin`, {
+	          method: 'POST',
+	          body: JSON.stringify({
+	            
+	          }),
+	          headers: {
+	            'Content-type': 'application/json; charset=UTF-8',
+	          },
+	        });
+	        const response = await res.json();
+
+snippet implink
+	import Link from 'next/link';
+	
+snippet improuter
+	import { useRouter } from 'next/router';
+
+snippet useRouterSnippet
+	const router = useRouter();
+
+snippet handler
+	export default async function handler(req,res){
+	  ${1}
+	}
+
+snippet className
+	className=""
+
+snippet Route
+	app.get('/:label', (req,res) => {
+		
+	});
+
+snippet mexport
+	module.exports = {
+		${1}
+	};
+
+snippet script2
+	<script src="${1}" type="text/javascript" charset="utf-8"></script>
+	
+snippet preventDefault
+	e.preventDefault()
+
+
+# Nodejs Snippets:
+
+snippet getdb
+	const mongoose = require('mongoose') 
+	URL='mongodb+srv://rabbi43:jLjbYS7lnq29Bs8s@cluster0.lhkjd.mongodb.net/fb-tracker'
+	
+	const connectionParams = { 
+	   useNewUrlParser: true, 
+	   useUnifiedTopology: true
+	} 
+	
+	mongoose.connect(URL,connectionParams) 
+	 .then( () => { 
+	   console.log('Connected to mongodb database successfully…!');
+	}) 
+	.catch( (err) => { 
+	  console.error(`${err}`);
+	});
+
+snippet getmodel
+	const mongoose = require("mongoose");
+	const Schema = mongoose.Schema;
+	
+	const visitorsSchema = Schema({
+	  totalVisitors: {
+	    type: Number,
+	    required:true
+	  },
+	  todaysVisitors: {
+	     type: Number,
+	     required: true
+	  },
+	  time:{
+	     type: Number,
+	     required: true
+	  },
+	  createdOn: {
+	    type: Date,
+	    default: Date.now,
+	  }
+	});
+	
+	module.exports = mongoose.model("visitors", visitorsSchema);
+
+snippet rqi
+	const ${1} = require("${2}");
+
+snippet expskeleton
+	const express = require("express");
+	const app = express();
+	const PORT = 5000;
+	
+	app.get('/', (req,res) => {
+	   res.send('Hello');
+	});
+	
+	app.listen(PORT, (err)=>{
+	   if(!err){
+	      console.log('Server started at http://localhost'+PORT);
+	   }
+	});
+
+# REACT NATIVE
+snippet rnfc
+	import React, { useState,useEffect } from 'react';
+	import {
+	   View,Text,StyleSheet,
+	   FlatList,Alert,
+	   TouchableOpacity,
+	   Button,ScrollView,StatusBar,
+	   TextInput,Image
+	} from 'react-native';
+	import { NavigationContainer } from '@react-navigation/native';
+	import { createNativeStackNavigator } from '@react-navigation/native-stack';
+	
+	const Demo = () => {
+	   const Stack = createNativeStackNavigator()
+	   
+	   return(
+	     <View>
+	      <Text>Hello</Text>
+	     </View>
+	   );
+	};
+	
+	const styles = StyleSheet.create({
+	   container:{
+	      
+	   }
+	})
+	
+	export default Demo;
+
+snippet Imagelo
+	<Image source={require('')} />
+
+snippet Imageon
+	<Image source={{uri:''}} />
+
+snippet useNavigate
+	  <NavigationContainer>
+		  <Stack.Navigator initialRouteName='Home'>
+	       <Stack.Screen name="Home" component={Home} />
+	     </Stack.Navigator>
+	  </NavigationContainer>
+
+snippet useEffect
+	useEffect(() => {
+		${1}
+	},[]);
+
+snippet afc
+	const ${1} = () => {
+		${2}
+	}
+
+snippet tfc
+	function Demo(){
+		${1}
+	}
+
+snippet View
+	<View>
+		<Text></Text>
+	</View>
+
+snippet Text
+	<Text></Text>
+
+snippet req
+	const {} = require('');
+
+# import & export:
+snippet imp
+	import moduleName from 'module'
+snippet imd
+	import { destructuredModule } from 'module'
+snippet exp
+	export default moduleName
+snippet exd
+	export { destructuredModule } from 'module'
+snippet imr
+	import React from 'react'
+snippet imrc
+	import React, { Component } from 'react'
+snippet imrr
+	import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+snippet redux
+	import { connect } from 'react-redux'
+
+# Components:
+snippet rfce
+	import React from 'react';
+	
+	function Demo(){
+	   return(
+	     <>
+	      
+	     </> 
+	   );
+	}
+	
+	export default Demo;
+snippet rafce
+	import React from 'react';
+
+	const Name = () => {
+	  return(
+		<div>
+			
+		</div>
+	  );
+	};
+	
+	export default Name;
+snippet cmb
+	/*
+	|--------------------------------------------------
+	| Comment
+	|--------------------------------------------------
+	*/
+
+# CUSTOM snippets
+
+	
+
+# Prototype
+snippet proto
+	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+		${4:// body...}
+	};
+# Function
+snippet fun
+	function ${1?:function_name}(${2:argument}) {
+		${3:// body...}
+	}
+# Anonymous Function
+regex /((=)\s*|(:)\s*|(\()|\b)/f/(\))?/
+snippet f
+	function${M1?: ${1:functionName}}($2) {
+		${0:$TM_SELECTED_TEXT}
+	}${M2?;}${M3?,}${M4?)}
+# Immediate function
+trigger \(?f\(
+endTrigger \)?
+snippet f(
+	(function(${1}) {
+		${0:${TM_SELECTED_TEXT:/* code */}}
+	}(${1}));
+# if
+snippet if
+	if (${1:true}) {
+		${0}
+	}
+# if ... else
+snippet ife
+	if (${1:true}) {
+		${2}
+	} else {
+		${0}
+	}
+# tertiary conditional
+snippet ter
+	${1:/* condition */} ? ${2:a} : ${3:b}
+# switch
+snippet switch
+	switch (${1:expression}) {
+		case '${3:case}':
+			${4:// code}
+			break;
+		${5}
+		default:
+			${2:// code}
+	}
+# case
+snippet case
+	case '${1:case}':
+		${2:// code}
+		break;
+	${3}
+
+# while (...) {...}
+snippet wh
+	while (${1:/* condition */}) {
+		${0:/* code */}
+	}
+# try
+snippet try
+	try {
+		${0:/* code */}
+	} catch (e) {}
+# do...while
+snippet do
+	do {
+		${2:/* code */}
+	} while (${1:/* condition */});
+# Object Method
+snippet :f
+regex /([,{[])|^\s*/:f/
+	${1:method_name}: function(${2:attribute}) {
+		${0}
+	}${3:,}
+# Timer functions
+snippet setTimeout
+regex /\b/st|timeout|setTimeo?u?t?/
+	setTimeout(function() {${2}}, ${1:10});
+snippet setInterval
+	setInterval(function() {${2}}, ${1:10});
+# Get Elements
+snippet gett
+	getElementsBy${1:TagName}('${2}')${3}
+snippet query
+	querySelector("${1}")
+# Get Element
+snippet get
+	getElementBy${1:Id}('${2}')${3}
+snippet queryAll
+	querySelectorAll("${1}")
+# eventlistener
+snippet addeventlistener
+	addEventListener("${1:click}", ${2})
+# console.log (Firebug)
+snippet cl
+	console.log(${1});
+# return
+snippet ret
+	return ${1:result}
+# for (property in object ) { ... }
+snippet fori
+	for (var ${1:prop} in ${2:Things}) {
+		${0:$2[$1]}
+	}
+# hasOwnProperty
+snippet has
+	hasOwnProperty(${1})
+# docstring
+snippet /**
+	/**
+	 * ${1:description}
+	 *
+	 */
+snippet @par
+regex /^\s*\*\s*/@(para?m?)?/
+	param {${1:type}} ${2:name} ${3:description}
+snippet @ret
+	returns {${1:type}} ${2:description}
+# JSON.parse
+snippet jsonp
+	JSON.parse(${1:jstr});
+# JSON.stringify
+snippet jsons
+	JSON.stringify(${1:object});
+# self-defining function
+snippet sdf
+	var ${1:function_name} = function(${2:argument}) {
+		${3:// initial code ...}
+
+		$1 = function($2) {
+			${4:// main code}
+		};
+	}
+# singleton
+snippet sing
+	function ${1:Singleton} (${2:argument}) {
+		// the cached instance
+		var instance;
+
+		// rewrite the constructor
+		$1 = function $1($2) {
+			return instance;
+		};
+		
+		// carry over the prototype properties
+		$1.prototype = this;
+
+		// the instance
+		instance = new $1();
+
+		// reset the constructor pointer
+		instance.constructor = $1;
+
+		${3:// code ...}
+
+		return instance;
+	}
+# class
+snippet class
+regex /^\s*/clas{0,2}/
+	var ${1:class} = function(${20}) {
+		$40$0
+	};
+	
+	(function() {
+		${60:this.prop = ""}
+	}).call(${1:class}.prototype);
+	
+	exports.${1:class} = ${1:class};
+# 
+snippet for-
+	for (var ${1:i} = ${2:Things}.length; ${1:i}--; ) {
+		${0:${2:Things}[${1:i}];}
+	}
+# for (...) {...}
+snippet for
+	for (var ${1:i} = 0; $1 < ${2:Things}.length; $1++) {
+		${3:$2[$1]}$0
+	}
+# for (...) {...} (Improved Native For-Loop)
+snippet forr
+	for (var ${1:i} = ${2:Things}.length - 1; $1 >= 0; $1--) {
+		${3:$2[$1]}$0
+	}
+
+
+#modules
+snippet def
+	define(function(require, exports, module) {
+	"use strict";
+	var ${1/.*\///} = require("${1}");
+	
+	$TM_SELECTED_TEXT
+	});
+
+snippet requ
+guard ^\s*
+	var ${1/.*\/(.)/\u$1/} = require("${1}").${1/.*\/(.)/\u$1/};
+	$0
+
+# HTML snippet:
+# Some useful Unicode entities
+# Non-Breaking Space
+snippet nbs
+	&nbsp;
+# ←
+snippet left
+	&#x2190;
+# →
+snippet right
+	&#x2192;
+# ↑
+snippet up
+	&#x2191;
+# ↓
+snippet down
+	&#x2193;
+# ↩
+snippet return
+	&#x21A9;
+# ⇤
+snippet backtab
+	&#x21E4;
+# ⇥
+snippet tab
+	&#x21E5;
+# ⇧
+snippet shift
+	&#x21E7;
+# ⌃
+snippet ctrl
+	&#x2303;
+# ⌅
+snippet enter
+	&#x2305;
+# ⌘
+snippet cmd
+	&#x2318;
+# ⌥
+snippet option
+	&#x2325;
+# ⌦
+snippet delete
+	&#x2326;
+# ⌫
+snippet backspace
+	&#x232B;
+# ⎋
+snippet esc
+	&#x238B;
+# Generic Doctype
+snippet doctype HTML 4.01 Strict
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+snippet doctype HTML 4.01 Transitional
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+snippet doctype HTML 5
+	<!DOCTYPE HTML>
+snippet doctype XHTML 1.0 Frameset
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+snippet doctype XHTML 1.0 Strict
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+snippet doctype XHTML 1.0 Transitional
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+snippet doctype XHTML 1.1
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+# HTML Doctype 4.01 Strict
+snippet docts
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+# HTML Doctype 4.01 Transitional
+snippet doct
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+# HTML Doctype 5
+snippet doct5
+	<!DOCTYPE html>
+# XHTML Doctype 1.0 Frameset
+snippet docxf
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+# XHTML Doctype 1.0 Strict
+snippet docxs
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+# XHTML Doctype 1.0 Transitional
+snippet docxt
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+# XHTML Doctype 1.1
+snippet docx
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+# html5shiv
+snippet html5shiv
+	<!--[if lte IE 8]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+snippet html5printshiv
+	<!--[if lte IE 8]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+	<![endif]-->
+# Attributes
+snippet attr
+	${1:attribute}="${2:property}"
+snippet attr+
+	${1:attribute}="${2:property}" attr+${3}
+snippet .
+	class="${1}"${2}
+snippet #
+	id="${1}"${2}
+snippet alt
+	alt="${1}"${2}
+snippet charset
+	charset="${1:utf-8}"${2}
+snippet data
+	data-${1}="${2:$1}"${3}
+snippet for
+	for="${1}"${2}
+snippet height
+	height="${1}"${2}
+snippet href
+	href="${1:#}"${2}
+snippet lang
+	lang="${1:en}"${2}
+snippet media
+	media="${1}"${2}
+snippet name
+	name="${1}"${2}
+snippet rel
+	rel="${1}"${2}
+snippet scope
+	scope="${1:row}"${2}
+snippet src
+	src="${1}"${2}
+snippet title=
+	title="${1}"${2}
+snippet type
+	type="${1}"${2}
+snippet value
+	value="${1}"${2}
+snippet width
+	width="${1}"${2}
+# Elements
+snippet a
+	<a href="${1:#}">${2:$1}</a>
+snippet a.
+	<a class="${1}" href="${2:#}">${3:$1}</a>
+snippet a#
+	<a id="${1}" href="${2:#}">${3:$1}</a>
+snippet a:ext
+	<a href="http://${1:example.com}">${2:$1}</a>
+snippet a:mail
+	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
+snippet abbr
+	<abbr title="${1}">${2}</abbr>
+snippet address
+	<address>
+		${1}
+	</address>
+snippet area
+	<area shape="${1:rect}" coords="${2}" href="${3}" alt="${4}" />
+snippet area+
+	<area shape="${1:rect}" coords="${2}" href="${3}" alt="${4}" />
+	area+${5}
+snippet area:c
+	<area shape="circle" coords="${1}" href="${2}" alt="${3}" />
+snippet area:d
+	<area shape="default" coords="${1}" href="${2}" alt="${3}" />
+snippet area:p
+	<area shape="poly" coords="${1}" href="${2}" alt="${3}" />
+snippet area:r
+	<area shape="rect" coords="${1}" href="${2}" alt="${3}" />
+snippet article
+	<article>
+		${1}
+	</article>
+snippet article.
+	<article class="${1}">
+		${2}
+	</article>
+snippet article#
+	<article id="${1}">
+		${2}
+	</article>
+snippet aside
+	<aside>
+		${1}
+	</aside>
+snippet aside.
+	<aside class="${1}">
+		${2}
+	</aside>
+snippet aside#
+	<aside id="${1}">
+		${2}
+	</aside>
+snippet audio
+	<audio src="${1}>${2}</audio>
+snippet b
+	<b>${1}</b>
+snippet base
+	<base href="${1}" target="${2}" />
+snippet bdi
+	<bdi>${1}</bdo>
+snippet bdo
+	<bdo dir="${1}">${2}</bdo>
+snippet bdo:l
+	<bdo dir="ltr">${1}</bdo>
+snippet bdo:r
+	<bdo dir="rtl">${1}</bdo>
+snippet blockquote
+	<blockquote>
+		${1}
+	</blockquote>
+snippet body
+	<body>
+		${1}
+	</body>
+snippet br
+	<br />${1}
+snippet button
+	<button type="${1:submit}">${2}</button>
+snippet button.
+	<button class="${1:button}" type="${2:submit}">${3}</button>
+snippet button#
+	<button id="${1}" type="${2:submit}">${3}</button>
+snippet button:s
+	<button type="submit">${1}</button>
+snippet button:r
+	<button type="reset">${1}</button>
+snippet canvas
+	<canvas id="${1:canvas}"></canvas>
+snippet caption
+	<caption>${1}</caption>
+snippet cite
+	<cite>${1}</cite>
+snippet code
+	<code>${1}</code>
+snippet col
+	<col />${1}
+snippet col+
+	<col />
+	col+${1}
+snippet colgroup
+	<colgroup>
+		${1}
+	</colgroup>
+snippet colgroup+
+	<colgroup>
+		<col />
+		col+${1}
+	</colgroup>
+snippet command
+	<command type="command" label="${1}" icon="${2}" />
+snippet command:c
+	<command type="checkbox" label="${1}" icon="${2}" />
+snippet command:r
+	<command type="radio" radiogroup="${1}" label="${2}" icon="${3}" />
+snippet datagrid
+	<datagrid>
+		${1}
+	</datagrid>
+snippet datalist
+	<datalist>
+		${1}
+	</datalist>
+snippet datatemplate
+	<datatemplate>
+		${1}
+	</datatemplate>
+snippet dd
+	<dd>${1}</dd>
+snippet dd.
+	<dd class="${1}">${2}</dd>
+snippet dd#
+	<dd id="${1}">${2}</dd>
+snippet del
+	<del>${1}</del>
+snippet details
+	<details>${1}</details>
+snippet dfn
+	<dfn>${1}</dfn>
+snippet dialog
+	<dialog>
+		${1}
+	</dialog>
+snippet div
+	<div>
+		${1}
+	</div>
+snippet div.
+	<div class="${1}">
+		${2}
+	</div>
+snippet div#
+	<div id="${1}">
+		${2}
+	</div>
+snippet dl
+	<dl>
+		${1}
+	</dl>
+snippet dl.
+	<dl class="${1}">
+		${2}
+	</dl>
+snippet dl#
+	<dl id="${1}">
+		${2}
+	</dl>
+snippet dl+
+	<dl>
+		<dt>${1}</dt>
+		<dd>${2}</dd>
+		dt+${3}
+	</dl>
+snippet dt
+	<dt>${1}</dt>
+snippet dt.
+	<dt class="${1}">${2}</dt>
+snippet dt#
+	<dt id="${1}">${2}</dt>
+snippet dt+
+	<dt>${1}</dt>
+	<dd>${2}</dd>
+	dt+${3}
+snippet em
+	<em>${1}</em>
+snippet embed
+	<embed src=${1} type="${2} />
+snippet fieldset
+	<fieldset>
+		${1}
+	</fieldset>
+snippet fieldset.
+	<fieldset class="${1}">
+		${2}
+	</fieldset>
+snippet fieldset#
+	<fieldset id="${1}">
+		${2}
+	</fieldset>
+snippet fieldset+
+	<fieldset>
+		<legend><span>${1}</span></legend>
+		${2}
+	</fieldset>
+	fieldset+${3}
+snippet figcaption
+	<figcaption>${1}</figcaption>
+snippet figure
+	<figure>${1}</figure>
+snippet footer
+	<footer>
+		${1}
+	</footer>
+snippet footer.
+	<footer class="${1}">
+		${2}
+	</footer>
+snippet footer#
+	<footer id="${1}">
+		${2}
+	</footer>
+snippet form
+	<form action="${1}" method="${2:get}" accept-charset="utf-8">
+		${3}
+	</form>
+snippet form.
+	<form class="${1}" action="${2}" method="${3:get}" accept-charset="utf-8">
+		${4}
+	</form>
+snippet form#
+	<form id="${1}" action="${2}" method="${3:get}" accept-charset="utf-8">
+		${4}
+	</form>
+snippet h1
+	<h1>${1}</h1>
+snippet h1.
+	<h1 class="${1}">${2}</h1>
+snippet h1#
+	<h1 id="${1}">${2}</h1>
+snippet h2
+	<h2>${1}</h2>
+snippet h2.
+	<h2 class="${1}">${2}</h2>
+snippet h2#
+	<h2 id="${1}">${2}</h2>
+snippet h3
+	<h3>${1}</h3>
+snippet h3.
+	<h3 class="${1}">${2}</h3>
+snippet h3#
+	<h3 id="${1}">${2}</h3>
+snippet h4
+	<h4>${1}</h4>
+snippet h4.
+	<h4 class="${1}">${2}</h4>
+snippet h4#
+	<h4 id="${1}">${2}</h4>
+snippet h5
+	<h5>${1}</h5>
+snippet h5.
+	<h5 class="${1}">${2}</h5>
+snippet h5#
+	<h5 id="${1}">${2}</h5>
+snippet h6
+	<h6>${1}</h6>
+snippet h6.
+	<h6 class="${1}">${2}</h6>
+snippet h6#
+	<h6 id="${1}">${2}</h6>
+snippet head
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<title>${1}</title>
+		${2}
+	</head>
+snippet header
+	<header>
+		${1}
+	</header>
+snippet header.
+	<header class="${1}">
+		${2}
+	</header>
+snippet header#
+	<header id="${1}">
+		${2}
+	</header>
+snippet hgroup
+	<hgroup>
+		${1}
+	</hgroup>
+snippet hgroup.
+	<hgroup class="${1}>
+		${2}
+	</hgroup>
+snippet hr
+	<hr />${1}
+snippet html
+	<html>
+	${1}
+	</html>
+snippet xhtml
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	${1}
+	</html>
+snippet html5
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<title>${1}</title>
+			${2:meta}
+		</head>
+		<body>
+			${3:body}
+		</body>
+	</html>
+snippet xhtml5
+	<!DOCTYPE html>
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+			<title>${1}</title>
+			${2:meta}
+		</head>
+		<body>
+			${3:body}
+		</body>
+	</html>
+snippet i
+	<i>${1}</i>
+snippet iframe
+	<iframe src="${1}" frameborder="0"></iframe>${2}
+snippet iframe.
+	<iframe class="${1}" src="${2}" frameborder="0"></iframe>${3}
+snippet iframe#
+	<iframe id="${1}" src="${2}" frameborder="0"></iframe>${3}
+snippet img
+	<img src="${1}" alt="${2}" />${3}
+snippet img.
+	<img class="${1}" src="${2}" alt="${3}" />${4}
+snippet img#
+	<img id="${1}" src="${2}" alt="${3}" />${4}
+snippet input
+	<input type="${1:text/submit/hidden/button/image}" name="${2}" id="${3:$2}" value="${4}" />${5}
+snippet input.
+	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}" />${6}
+snippet input:text
+	<input type="text" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:submit
+	<input type="submit" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:hidden
+	<input type="hidden" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:button
+	<input type="button" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:image
+	<input type="image" name="${1}" id="${2:$1}" src="${3}" alt="${4}" />${5}
+snippet input:checkbox
+	<input type="checkbox" name="${1}" id="${2:$1}" />${3}
+snippet input:radio
+	<input type="radio" name="${1}" id="${2:$1}" />${3}
+snippet input:color
+	<input type="color" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:date
+	<input type="date" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:datetime
+	<input type="datetime" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:datetime-local
+	<input type="datetime-local" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:email
+	<input type="email" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:file
+	<input type="file" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:month
+	<input type="month" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:number
+	<input type="number" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:password
+	<input type="password" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:range
+	<input type="range" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:reset
+	<input type="reset" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:search
+	<input type="search" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:time
+	<input type="time" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:url
+	<input type="url" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet input:week
+	<input type="week" name="${1}" id="${2:$1}" value="${3}" />${4}
+snippet ins
+	<ins>${1}</ins>
+snippet kbd
+	<kbd>${1}</kbd>
+snippet keygen
+	<keygen>${1}</keygen>
+snippet label
+	<label for="${2:$1}">${1}</label>
+snippet label:i
+	<label for="${2:$1}">${1}</label>
+	<input type="${3:text/submit/hidden/button}" name="${4:$2}" id="${5:$2}" value="${6}" />${7}
+snippet label:s
+	<label for="${2:$1}">${1}</label>
+	<select name="${3:$2}" id="${4:$2}">
+		<option value="${5}">${6:$5}</option>
+	</select>
+snippet legend
+	<legend>${1}</legend>
+snippet legend+
+	<legend><span>${1}</span></legend>
+snippet li
+	<li>${1}</li>
+snippet li.
+	<li class="${1}">${2}</li>
+snippet li+
+	<li>${1}</li>
+	li+${2}
+snippet lia
+	<li><a href="${2:#}">${1}</a></li>
+snippet lia+
+	<li><a href="${2:#}">${1}</a></li>
+	lia+${3}
+snippet link
+	<link rel="${1}" href="${2}" title="${3}" type="${4}" />${5}
+snippet link:atom
+	<link rel="alternate" href="${1:atom.xml}" title="Atom" type="application/atom+xml" />${2}
+snippet link:css
+	<link rel="stylesheet" href="${2:style.css}" type="text/css" media="${3:all}" />${4}
+snippet link:favicon
+	<link rel="shortcut icon" href="${1:favicon.ico}" type="image/x-icon" />${2}
+snippet link:rss
+	<link rel="alternate" href="${1:rss.xml}" title="RSS" type="application/atom+xml" />${2}
+snippet link:touch
+	<link rel="apple-touch-icon" href="${1:favicon.png}" />${2}
+snippet map
+	<map name="${1}">
+		${2}
+	</map>
+snippet map.
+	<map class="${1}" name="${2}">
+		${3}
+	</map>
+snippet map#
+	<map name="${1}" id="${2:$1}>
+		${3}
+	</map>
+snippet map+
+	<map name="${1}">
+		<area shape="${2}" coords="${3}" href="${4}" alt="${5}" />${6}
+	</map>${7}
+snippet mark
+	<mark>${1}</mark>
+snippet menu
+	<menu>
+		${1}
+	</menu>
+snippet menu:c
+	<menu type="context">
+		${1}
+	</menu>
+snippet menu:t
+	<menu type="toolbar">
+		${1}
+	</menu>
+snippet meta
+	<meta http-equiv="${1}" content="${2}" />${3}
+snippet meta:compat
+	<meta http-equiv="X-UA-Compatible" content="IE=${1:7,8,edge}" />${3}
+snippet meta:refresh
+	<meta http-equiv="refresh" content="text/html;charset=UTF-8" />${3}
+snippet meta:utf
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />${3}
+snippet meter
+	<meter>${1}</meter>
+snippet nav
+	<nav>
+		${1}
+	</nav>
+snippet nav.
+	<nav class="${1}">
+		${2}
+	</nav>
+snippet nav#
+	<nav id="${1}">
+		${2}
+	</nav>
+snippet noscript
+	<noscript>
+		${1}
+	</noscript>
+snippet object
+	<object data="${1}" type="${2}">
+		${3}
+	</object>${4}
+# Embed QT Movie
+snippet movie
+	<object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+	 codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+		<param name="src" value="$1" />
+		<param name="controller" value="$4" />
+		<param name="autoplay" value="$5" />
+		<embed src="${1:movie.mov}"
+			width="${2:320}" height="${3:240}"
+			controller="${4:true}" autoplay="${5:true}"
+			scale="tofit" cache="true"
+			pluginspage="http://www.apple.com/quicktime/download/" />
+	</object>${6}
+snippet ol
+	<ol>
+		${1}
+	</ol>
+snippet ol.
+	<ol class="${1}>
+		${2}
+	</ol>
+snippet ol#
+	<ol id="${1}>
+		${2}
+	</ol>
+snippet ol+
+	<ol>
+		<li>${1}</li>
+		li+${2}
+	</ol>
+snippet opt
+	<option value="${1}">${2:$1}</option>
+snippet opt+
+	<option value="${1}">${2:$1}</option>
+	opt+${3}
+snippet optt
+	<option>${1}</option>
+snippet optgroup
+	<optgroup>
+		<option value="${1}">${2:$1}</option>
+		opt+${3}
+	</optgroup>
+snippet output
+	<output>${1}</output>
+snippet p
+	<p>${1}</p>
+snippet param
+	<param name="${1}" value="${2}" />${3}
+snippet pre
+	<pre>
+		${1}
+	</pre>
+snippet progress
+	<progress>${1}</progress>
+snippet q
+	<q>${1}</q>
+snippet rp
+	<rp>${1}</rp>
+snippet rt
+	<rt>${1}</rt>
+snippet ruby
+	<ruby>
+		<rp><rt>${1}</rt></rp>
+	</ruby>
+snippet s
+	<s>${1}</s>
+snippet samp
+	<samp>
+		${1}
+	</samp>
+snippet script
+	<script type="text/javascript" charset="utf-8">
+		${1}
+	</script>
+	
+
+snippet scriptsrc
+	<script src="${1}.js" type="text/javascript" charset="utf-8"></script>
+snippet newscript
+	<script type="application/javascript" charset="utf-8">
+		${1}
+	</script>
+snippet newscriptsrc
+	<script src="${1}.js" type="application/javascript" charset="utf-8"></script>
+snippet section
+	<section>
+		${1}
+	</section>
+snippet section.
+	<section class="${1}">
+		${2}
+	</section>
+snippet section#
+	<section id="${1}">
+		${2}
+	</section>
+snippet select
+	<select name="${1}" id="${2:$1}">
+		${3}
+	</select>
+snippet select.
+	<select name="${1}" id="${2:$1}" class="${3}>
+		${4}
+	</select>
+snippet select+
+	<select name="${1}" id="${2:$1}">
+		<option value="${3}">${4:$3}</option>
+		opt+${5}
+	</select>
+snippet small
+	<small>${1}</small>
+snippet source
+	<source src="${1}" type="${2}" media="${3}" />
+snippet span
+	<span>${1}</span>
+snippet strong
+	<strong>${1}</strong>
+snippet style
+	<style type="text/css" media="${1:all}">
+		${2}
+	</style>
+snippet sub
+	<sub>${1}</sub>
+snippet summary
+	<summary>
+		${1}
+	</summary>
+snippet sup
+	<sup>${1}</sup>
+snippet table
+	<table border="${1:0}">
+		${2}
+	</table>
+snippet table.
+	<table class="${1}" border="${2:0}">
+		${3}
+	</table>
+snippet table#
+	<table id="${1}" border="${2:0}">
+		${3}
+	</table>
+snippet tbody
+	<tbody>
+		${1}
+	</tbody>
+snippet td
+	<td>${1}</td>
+snippet td.
+	<td class="${1}">${2}</td>
+snippet td#
+	<td id="${1}">${2}</td>
+snippet td+
+	<td>${1}</td>
+	td+${2}
+snippet textarea
+	<textarea name="${1}" id=${2:$1} rows="${3:8}" cols="${4:40}">${5}</textarea>${6}
+snippet tfoot
+	<tfoot>
+		${1}
+	</tfoot>
+snippet th
+	<th>${1}</th>
+snippet th.
+	<th class="${1}">${2}</th>
+snippet th#
+	<th id="${1}">${2}</th>
+snippet th+
+	<th>${1}</th>
+	th+${2}
+snippet thead
+	<thead>
+		${1}
+	</thead>
+snippet time
+	<time datetime="${1}" pubdate="${2:$1}>${3:$1}</time>
+snippet title
+	<title>${1}</title>
+snippet tr
+	<tr>
+		${1}
+	</tr>
+snippet tr+
+	<tr>
+		<td>${1}</td>
+		td+${2}
+	</tr>
+snippet track
+	<track src="${1}" srclang="${2}" label="${3}" default="${4:default}>${5}</track>${6}
+snippet ul
+	<ul>
+		${1}
+	</ul>
+snippet ul.
+	<ul class="${1}">
+		${2}
+	</ul>
+snippet ul#
+	<ul id="${1}">
+		${2}
+	</ul>
+snippet ul+
+	<ul>
+		<li>${1}</li>
+		li+${2}
+	</ul>
+snippet var
+	<var>${1}</var>
+snippet video
+	<video src="${1}" height="${2}" width="${3}" preload="${5:none}" autoplay="${6:autoplay}">${7}</video>${8}
+snippet wbr
+	<wbr />${1}
+
+# JSX Snippets:
+
+# <a>: Anchor (link)
+snippet a
+	<a href="${1}">${0}</a>
+	
+# <address>: Author contact,info, indented
+snippet address
+	<address>
+		${0}
+	</address>
+	
+# <article>, indented
+snippet article
+	<article>
+		${0}
+	</article>
+	
+# <aside>, indented
+snippet aside
+	<aside>
+		${0}
+	</aside>
+	
+# <aside>, indented
+snippet blockquote
+	<blockquote>
+		${0}
+	</blockquote>
+	
+# <b>: Stylistically bold
+snippet b
+	<b>${1}</b>${0}
+	
+# <dl>: Description list,,indented
+snippet dl
+	<dl>
+		${0}
+	</dl>
+	
+# <dd>: Description list data
+snippet dd
+	<dd>${0}</dd>
+	
+# <dt>: Description list term
+snippet dt
+	<dt>${0}</dt>
+	
+# <div>, indented
+snippet div
+	<div>
+		${0}
+	</div>
+	
+# <em>: Emphasis
+snippet em
+	<em>${0}</em>
+	
+# <figure>, indented
+snippet figure
+	<figure>
+		${0}
+	</figure>
+	
+# figcaption>: Figure caption,,indented
+snippet figcaption
+	<figcaption>
+		${0}
+	</figcaption>
+	
+# <footer>, indented
+snippet footer
+	<footer>
+		${0}
+	</footer>
+	
+# <head>, indented
+snippet head
+	<head>
+		${0}
+	</head>
+	
+# <header>, indented
+snippet header
+	<header>
+		${0}
+	</header>
+	
+# <html>, indented
+snippet html
+	<html>
+		${0}
+	</html>
+	
+# <img>: Image
+snippet img
+	<img src="${0}" alt="" width="" height="" srcset="">
+	
+# <i>: Stylistically italic
+snippet i
+	<i>${0}</i>
+	
+# <link>, indented
+snippet link
+	<link rel="stylesheet" href="${0}">
+	
+# <li>: List Item
+snippet li
+	<li>${0}</li>
+	
+# <main>: Main area,,indented
+snippet main
+	<main>
+		${0}
+	</main>
+	
+# <meta>: UTF-8
+snippet meta
+	<meta charset="UTF-8">${0}
+	
+# <nav>: Navigation, indented
+snippet nav
+	<nav>
+		${0}
+	</nav>
+	
+# <option>: No value attribute
+snippet option
+	<option>${1}</option>${0}
+	
+# <ol>: Ordered list,indented
+snippet ol
+	<ol>
+		${0}
+	</ol>
+	
+# <ol><li>: Ordered list & 3 list,items, indented
+snippet ol+
+	<ol>
+		<li>${1}</li>
+		<li>${2}</li>
+		<li>${3}</li>${0}
+	</ol>
+	
+# <p>: Paragraph, indented
+snippet p
+	<p>
+		${0}
+	</p>
+	
+# <script src>
+snippet script
+	<script src="${0}"></script>
+	
+# <section>, indented
+snippet section
+	<section>
+		${0}
+	</section>
+	
+# <strong>: Strong emphasis
+snippet strong
+	<strong>${0}</strong>
+	
+# <style>, indented
+snippet style
+	<style>
+		${0}
+	</style>
+	
+# <table>, indented
+snippet table
+	<table>
+		${0}
+	</table>
+	
+# <caption>: Table caption,,indented
+snippet caption
+	<caption>
+		${0}
+	</caption>
+	
+# <td>: Table data cell
+snippet td
+	<td>${0}</td>
+	
+# <th>: Table header cell
+snippet th
+	<th>${0}</th>
+	
+# <tr>: Table row, indented
+snippet tr
+	<tr>
+		${0}
+	</tr>
+	
+# <tr><td>: Table row,& data cell
+snippet trd
+	<tr>
+		<td>${0}</td>
+	</tr>
+	
+# <tr><th>: Table row,& header cell
+snippet trh
+	<tr>
+		<th>${0}</th>
+	</tr>
+	
+# <ul>: Unordered list,,indented
+snippet ul
+	<ul>
+		${0}
+	</ul>
+	
+# <ul><li>: Unordered list & 3 list,items, indented
+snippet ul+
+	<ul>
+		<li>${1}</li>
+		<li>${2}</li>
+		<li>${0}</li>
+	</ul>
+	
+# <video>: Video player,,1 video source
+snippet video
+	<video src="" poster="" width="" height="" controls></video>
+	
+# <video>: Video player,,2+ video sources, indented
+snippet video+
+	<video poster="" width="" height="" controls>
+		<source src="${1}" type="video/webm">
+		<source src="${2}" type="video/mp4">
+	</video>
+	
+ = {}
+	
+	export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})
+	
+# Creates a React Native Arrow Function Component with ES7 module system in TypeScript
+snippet tsrnf
+	import { View, Text } from 'react-native'
+	import React from 'react'
+	
+	type Props = {}
+	
+	const ${1:${TM_FILENAME_BASE}} = (props: Props) => {
+	  return (
+	    <View>
+	      <Text>${1:first}</Text>
+	    </View>
+	  )
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React Native Arrow Function Component with ES7 module system, TypeScript interface and StyleSheet
+snippet tsrnfs
+	import { StyleSheet, Text, View } from 'react-native'
+	import React from 'react'
+	
+	type Props = {}
+	
+	const ${1:${TM_FILENAME_BASE}} = (props: Props) => {
+	  return (
+	    <View>
+	      <Text>${1:first}</Text>
+	    </View>
+	  )
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+	const styles = StyleSheet.create({})
+	
+# Creates a React Arrow Function Component with ES7 module system
+snippet rafc
+	import React from 'react'
+	
+	export const ${1:${TM_FILENAME_BASE}} = () => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	
+# Creates a React Arrow Function Component with ES7 module system with PropTypes
+snippet rafcp
+	import React from 'react'
+	import PropTypes from 'prop-types'
+	
+	const ${1:${TM_FILENAME_BASE}} = props => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	${1:${TM_FILENAME_BASE}}.propTypes = {}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React Arrow Function Component with ES7 module system
+snippet rafce
+	import React from 'react'
+	
+	const ${1:${TM_FILENAME_BASE}} = () => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React component class with ES7 module system
+snippet rcc
+	import React, { Component } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends Component {
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	
+# Creates a React component class with PropTypes and ES7 module system
+snippet rccp
+	import PropTypes from 'prop-types'
+	import React, { Component } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends Component {
+	  static propTypes = {${2:second}: ${3:third}}
+	
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	
+# Creates a React component class with connected redux and ES7 module system
+snippet rcredux
+	import React, { Component } from 'react'
+	import { connect } from 'react-redux'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends Component {
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	const mapStateToProps = (state) => ({})
+	
+	const mapDispatchToProps = {}
+	
+	export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})
+	
+# Creates a React component class with PropTypes with connected redux and ES7 module system
+snippet rcreduxp
+	import PropTypes from 'prop-types'
+	import React, { Component } from 'react'
+	import { connect } from 'react-redux'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends Component {
+	  static propTypes = {
+	    ${2:second}: ${3:third}
+	  }
+	
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	const mapStateToProps = (state) => ({})
+	
+	const mapDispatchToProps = {}
+	
+	export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})
+	
+# Creates a React component class with ES7 module system
+snippet rce
+	import React, { Component } from 'react'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends Component {
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React component class with ES7 module system
+snippet rcep
+	import PropTypes from 'prop-types'
+	import React, { Component } from 'react'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends Component {
+	  static propTypes = {}
+	
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React pure component class with ES7 module system export
+snippet rpce
+	import React, { PureComponent } from 'react'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends PureComponent {
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React pure component class with ES7 module system
+snippet rpc
+	import React, { PureComponent } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends PureComponent {
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	
+# Creates a React component class with ES7 module system
+snippet rpcp
+	import PropTypes from 'prop-types'
+	import React, { PureComponent } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends PureComponent {
+	  static propTypes = {}
+	
+	  render() {
+	    return (
+	      <div>${1:first}</div>
+	    )
+	  }
+	}
+	
+	
+# Creates a React Memo Function Component with ES7 module system
+snippet rmc
+	import React, { memo } from 'react'
+	
+	const ${1:${TM_FILENAME_BASE}} = memo(() => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	})
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React Memo Function Component with ES7 module system with PropTypes
+snippet rmcp
+	import PropTypes from 'prop-types'
+	import React, { memo } from 'react'
+	
+	const ${1:${TM_FILENAME_BASE}} = memo((props) => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	})
+	
+	${1:${TM_FILENAME_BASE}}.propTypes = {}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# Creates a React Functional Component with ES7 module system
+snippet rfc
+	import React from 'react'
+	
+	export default function ${1:${TM_FILENAME_BASE}}() {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	
+# Creates a React functional component with connected redux and ES7 module system
+snippet rfcredux
+	import React from 'react'
+	import { connect } from 'react-redux'
+	
+	export const ${1:${TM_FILENAME_BASE}} = (props) => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	const mapStateToProps = (state) => ({})
+	
+	const mapDispatchToProps = {}
+	
+	export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})
+	
+# DEPRECATED: Creates a React functional component with PropTypes with connected redux and ES7 module system
+snippet rfcreduxp
+	import PropTypes from 'prop-types'
+	import React from 'react'
+	import { connect } from 'react-redux'
+	
+	export const ${1:${TM_FILENAME_BASE}} = (props) => {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	${1:${TM_FILENAME_BASE}}.propTypes = {
+	  ${2:second}: PropTypes.${3:third}
+	}
+	
+	const mapStateToProps = (state) => ({})
+	
+	const mapDispatchToProps = {}
+	
+	export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})
+	
+# Creates a React Functional Component with ES7 module system with PropTypes
+snippet rfcp
+	import React from 'react'
+	import PropTypes from 'prop-types'
+	
+	function ${1:${TM_FILENAME_BASE}}(props) {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	${1:${TM_FILENAME_BASE}}.propTypes = {}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+	
+# Creates a React Functional Component with ES7 module system
+snippet rfce
+	import React from 'react'
+	
+	function ${1:${TM_FILENAME_BASE}}() {
+	  return (
+	    <div>${1:first}</div>
+	  )
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# If the specified expression is false, the message is written to the console along with a stack trace
+snippet cas
+	console.assert(${1:first}, ${2:second})
+	
+# Clears the console
+snippet ccl
+	console.clear()
+	
+# Writes the the number of times that count() has been invoked at the same line and with the same label
+snippet cco
+	console.count(${1:first})
+	
+# Prints a JavaScript representation of the specified object
+snippet cdi
+	console.dir(${1:first})
+	
+# Displays a message in the console and also includes a stack trace from where the method was called
+snippet cer
+	console.error(${1:first})
+	
+# Groups and indents all following output by an additional level, until console.groupEnd() is called.
+snippet cgr
+	console.group('${1:first}')
+	
+# Closes out the corresponding console.group().
+snippet cge
+	console.groupEnd()
+	
+# Displays a message in the console
+snippet clg
+	console.log(${1:first})
+# Prints a stack trace from the point where the method was called
+snippet ctr
+	console.trace(${1:first})
+	
+# Logs property with name.
+snippet clo
+	console.log('${1:first}', ${1:first})
+	
+# Logs stringified JSON property with name.
+snippet clj
+	console.log('${1:first}', JSON.stringify(${1:first}, null, 2))
+	
+# Console time wrapper
+snippet ctm
+	console.time('${1:first}')
+	
+# Console time end wrapper
+snippet cte
+	console.timeEnd('${1:first}')
+	
+# Displays a message in the console but also displays a yellow warning icon along with the logged message
+snippet cwa
+	console.warn(${1:first})
+	
+# Displays a message in the console but also displays a blue information icon along with the logged message
+snippet cin
+	console.info(${1:first})
+	
+# Logs table to console
+snippet ctl
+	console.table([${1:first}])
+	
+# useCallback
+snippet useCallbackSnippet
+	useCallback(
+	  () => {
+	    ${1:first}
+	  },
+	  [${2:second}],
+	)
+	
+	
+# useContext
+snippet useContextSnippet
+	const ${1:first} = useContext(${2:second})
+	
+# useEffect
+snippet useEffectSnippet
+	useEffect(() => {
+	  ${1:first}
+	
+	  return () => {
+	    ${2:second}
+	  }
+	}, [${3:third}])
+	
+	
+# useImperativeHandle
+snippet useImperativeHandleSnippet
+	useImperativeHandle(
+	  ${1:first},
+	  () => {
+	    ${2:second}
+	  },
+	  [${3:third}],
+	)
+	
+# useLayoutEffect
+snippet useLayoutEffectSnippet
+	useLayoutEffect(() => {
+	  ${1:first}
+	
+	  return () => {
+	    ${2:second}
+	  };
+	}, [${3:third}])
+	
+# useMemo
+snippet useMemoSnippet
+	useMemo(() => ${1:first}, [${2:second}])
+	
+# useReducer
+snippet useReducerSnippet
+	const [state, dispatch] = useReducer(${1:first}, ${2:second}, ${3:third})
+	
+# useRef
+snippet useRefSnippet
+	const ${1:first} = useRef(${2:second})
+	
+# useState
+snippet useStateSnippet
+	const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:second})
+	
+# importAs
+snippet ima
+	import { ${2:second} as ${3:third} } from '${1:first}'
+	
+# importBrowserRouter
+snippet imbr
+	import { BrowserRouter as Router } from 'react-router-dom'
+	
+# importBrowserRouterWithRouteAndNavLink
+snippet imrr
+	import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+	
+	
+# importDestructing
+snippet imd
+	import { ${2:second} } from '${1:first}'
+	
+# importEverything
+snippet ime
+	import * as ${2:second} from '${1:first}'
+	
+# importNoModuleName
+snippet imn
+	import '${1:first}'
+	
+# importPropTypes
+snippet impt
+	import PropTypes from 'prop-types'
+	
+# importReact
+snippet imr
+	import React from 'react'
+	
+# importReactDom
+snippet imrd
+	import ReactDOM from 'react-dom'
+	
+# importReactWithComponent
+snippet imrc
+	import React, { Component } from 'react'
+	
+# importReactWithComponentAndPropTypes
+snippet imrcp
+	import React, { Component } from 'react'
+	import PropTypes from 'prop-types'
+	
+	
+# importReactWithMemo
+snippet imrm
+	import React, { memo } from 'react'
+	
+# importReactWithMemoAndPropTypes
+snippet imrmp
+	import React, { memo } from 'react'
+	import PropTypes from 'prop-types'
+	
+	
+# importReactWithPureComponent
+snippet imrpc
+	import React, { PureComponent } from 'react'
+	
+# importReactWithPureComponentAndPropTypes
+snippet imrpcp
+	import React, { PureComponent } from 'react'
+	import PropTypes from 'prop-types'
+	
+	
+# importRouterLink
+snippet imbrl
+	import { Link } from 'react-router-dom'
+	
+# importRouterNavLink
+snippet imbrnl
+	import { NavLink } from 'react-router-dom'
+	
+# importRouterSetup
+snippet imbrc
+	import { Route, Switch, NavLink, Link } from 'react-router-dom'
+	
+# importRouterSwitch
+snippet imbrs
+	import { Switch } from 'react-router-dom'
+	
+# import
+snippet imp
+	import ${2:second} from '${1:first}'
+	
+# Array prop type
+snippet pta
+	PropTypes.array
+	
+# Array prop type required
+snippet ptar
+	PropTypes.array.isRequired
+	
+# Bool prop type
+snippet ptb
+	PropTypes.bool
+	
+# Bool prop type required
+snippet ptbr
+	PropTypes.bool.isRequired
+	
+# Func prop type
+snippet ptf
+	PropTypes.func
+	
+# Func prop type required
+snippet ptfr
+	PropTypes.func.isRequired
+	
+# Number prop type
+snippet ptn
+	PropTypes.number
+	
+# Number prop type required
+snippet ptnr
+	PropTypes.number.isRequired
+	
+# Object prop type
+snippet pto
+	PropTypes.object
+	
+# Object prop type required
+snippet ptor
+	PropTypes.object.isRequired
+	
+# String prop type
+snippet pts
+	PropTypes.string
+	
+# String prop type required
+snippet ptsr
+	PropTypes.string.isRequired
+	
+# Anything that can be rendered: numbers, strings, elements or an array
+snippet ptnd
+	PropTypes.node
+	
+# Anything that can be rendered: numbers, strings, elements or an array required
+snippet ptndr
+	PropTypes.node.isRequired
+	
+# React element prop type
+snippet ptel
+	PropTypes.element
+	
+# React element prop type required
+snippet ptelr
+	PropTypes.element.isRequired
+	
+# Is an instance of a class prop type
+snippet pti
+	PropTypes.instanceOf($0)
+	
+# Is an instance of a class prop type required
+snippet ptir
+	PropTypes.instanceOf($0).isRequired
+	
+# Prop type limited to specific values by treating it as an enum
+snippet pte
+	PropTypes.oneOf(['$0'])
+	
+# Prop type limited to specific values by treating it as an enum required
+snippet pter
+	PropTypes.oneOf(['$0']).isRequired
+	
+# An object that could be one of many types
+snippet ptet
+	PropTypes.oneOfType([
+	  $0
+	])
+	
+# An object that could be one of many types required
+snippet ptetr
+	PropTypes.oneOfType([
+	  $0
+	]).isRequired
+	
+# An array of a certain type
+snippet ptao
+	PropTypes.arrayOf($0)
+	
+# An array of a certain type required
+snippet ptaor
+	PropTypes.arrayOf($0).isRequired
+	
+# An object with property values of a certain type
+snippet ptoo
+	PropTypes.objectOf($0)
+	
+# An object with property values of a certain type required
+snippet ptoor
+	PropTypes.objectOf($0).isRequired
+	
+# An object taking on a particular shape
+snippet ptsh
+	PropTypes.shape({
+	  $0
+	})
+	
+# An object taking on a particular shape required
+snippet ptshr
+	PropTypes.shape({
+	  $0
+	}).isRequired
+	
+# An object with warnings on extra properties
+snippet ptex
+	PropTypes.exact({
+	  $0
+	})
+	
+# An object with warnings on extra properties required
+snippet ptexr
+	PropTypes.exact({
+	  $0
+	}).isRequired
+	
+# Any prop type
+snippet ptany
+	PropTypes.any
+	
+# reactNativeComponent
+snippet rnc
+	import { Text, View } from 'react-native'
+	import React, { Component } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends Component {
+	  render() {
+	    return (
+	      <View>
+	        <Text>${1:first}</Text>
+	      </View>
+	    )
+	  }
+	}
+	
+# reactNativeComponentExport
+snippet rnce
+	import { Text, View } from 'react-native'
+	import React, { Component } from 'react'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends Component {
+	  render() {
+	    return (
+	      <View>
+	        <Text>${1:first}</Text>
+	      </View>
+	    )
+	  }
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# reactNativeComponentWithStyles
+snippet rncs
+	import { Text, StyleSheet, View } from 'react-native'
+	import React, { Component } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends Component {
+	  render() {
+	    return (
+	      <View>
+	        <Text>${1:first}</Text>
+	      </View>
+	    )
+	  }
+	}
+	
+	const styles = StyleSheet.create({})
+	
+# reactNativeFunctionalComponent
+snippet rnf
+	import { View, Text } from 'react-native'
+	import React from 'react'
+	
+	export default function ${1:${TM_FILENAME_BASE}}() {
+	  return (
+	    <View>
+	      <Text>${1:first}</Text>
+	    </View>
+	  )
+	}
+	
+# reactNativeFunctionalComponentWithStyles
+snippet rnfs
+	import { StyleSheet, Text, View } from 'react-native'
+	import React from 'react'
+	
+	export default function ${1:${TM_FILENAME_BASE}}() {
+	  return (
+	    <View>
+	      <Text>${1:first}</Text>
+	    </View>
+	  )
+	}
+	
+	const styles = StyleSheet.create({})
+	
+# reactNativeFunctionalExportComponent
+snippet rnfe
+	import { View, Text } from 'react-native'
+	import React from 'react'
+	
+	const ${1:${TM_FILENAME_BASE}} = () => {
+	  return (
+	    <View>
+	      <Text>${1:first}</Text>
+	    </View>
+	  )
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# reactNativeFunctionalExportComponentWithStyles
+snippet rnfes
+	import { StyleSheet, Text, View } from 'react-native'
+	import React from 'react'
+	
+	const ${1:${TM_FILENAME_BASE}} = () => {
+	  return (
+	    <View>
+	      <Text>${1:first}</Text>
+	    </View>
+	  )
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+	const styles = StyleSheet.create({})
+	
+# reactNativeImport
+snippet imrn
+	import { ${1:first} } from 'react-native'
+	
+# reactNativePureComponent
+snippet rnpc
+	import { Text, View } from 'react-native'
+	import React, { PureComponent } from 'react'
+	
+	export default class ${1:${TM_FILENAME_BASE}} extends PureComponent {
+	  render() {
+	    return (
+	      <View>
+	        <Text>${1:first}</Text>
+	      </View>
+	    )
+	  }
+	}
+	
+# reactNativePureComponentExport
+snippet rnpce
+	import { Text, View } from 'react-native'
+	import React, { PureComponent } from 'react'
+	
+	export class ${1:${TM_FILENAME_BASE}} extends PureComponent {
+	  render() {
+	    return (
+	      <View>
+	        <Text>${1:first}</Text>
+	      </View>
+	    )
+	  }
+	}
+	
+	export default ${1:${TM_FILENAME_BASE}}
+	
+# reactNativeStyles
+snippet rnstyle
+	const styles = StyleSheet.create({${1:first}})
+	
+# importReduxConnect
+snippet redux
+	import { connect } from 'react-redux'
+	
+# reduxAction
+snippet rxaction
+	export const ${1:first} = (payload) => ({
+	  type: ${2:second},
+	  payload
+	})
+	
+	
+# reduxConst
+snippet rxconst
+	export const ${1:first} = '${1:first}'
+	
+# reduxReducer
+snippet rxreducer
+	const initialState = {}
+	
+	export default (state = initialState, { type, payload }) => {
+	  switch (type) {
+	
+	  case ${1:first}:
+	    return { ...state, ...payload }
+	
+	  default:
+	    return state
+	  }
+	}
+	
+	
+# reduxSelector
+snippet rxselect
+	import { createSelector } from 'reselect'
+	
+	export const ${1:first} = state => state.${2:second}
+	
+# reduxSlice
+snippet rxslice
+	import { createSlice } from '@reduxjs/toolkit'
+	
+	const initialState = {
+	
+	}
+	
+	const ${1:${TM_FILENAME_BASE}} = createSlice({
+	  name: ${2:second},
+	  initialState,
+	  reducers: {}
+	});
+	
+	export const {} = ${1:${TM_FILENAME_BASE}}.actions
+	
+	export default ${1:${TM_FILENAME_BASE}}.reducer
+	
+# mappingToProps
+snippet reduxmap
+	const mapStateToProps = (state) => ({})
+	
+	const mapDispatchToProps = {}
+	
+# Testing `describe` block
+snippet desc
+	describe('${1:first}', () => { ${2:second} })
+	
+# Testing asynchronous `it` block
+snippet tita
+	it('should ${1:first}', async () => { ${2:second} })
+	
+# Testing `it` block
+snippet tit
+	it('should ${1:first}', () => { ${2:second} })
+	
+# Create test component
+snippet srtest
+	import React from 'react'
+	import renderer from 'react-test-renderer'
+	import { Provider } from 'react-redux'
+	
+	import store from '~/store'
+	import { ${1:${TM_FILENAME_BASE}} } from '../${1:${TM_FILENAME_BASE}}'
+	
+	describe('<${1:${TM_FILENAME_BASE}} />', () => {
+	  const defaultProps = {}
+	  const wrapper = renderer.create(
+	    <Provider store={store}>
+	     <${1:${TM_FILENAME_BASE}} {...defaultProps} />
+	    </Provider>,
+	  )
+	
+	  test('render', () => {
+	    expect(wrapper).toMatchSnapshot()
+	  })
+	})
+	
+# setupReactNativeTest
+snippet sntest
+	import 'react-native'
+	import React from 'react'
+	import renderer from 'react-test-renderer'
+	
+	import ${1:${TM_FILENAME_BASE}} from '../${1:${TM_FILENAME_BASE}}'
+	
+	describe('<${1:${TM_FILENAME_BASE}} />', () => {
+	  const defaultProps = {}
+	  const wrapper = renderer.create(<${1:${TM_FILENAME_BASE}} {...defaultProps} />)
+	
+	  test('render', () => {
+	    expect(wrapper).toMatchSnapshot()
+	  })
+	})
+	
+# setupReactNativeTestWithRedux
+snippet snrtest
+	import 'react-native'
+	import React from 'react'
+	import renderer from 'react-test-renderer'
+	import { Provider } from 'react-redux'
+	
+	import store from '~/store'
+	import ${1:${TM_FILENAME_BASE}} from '../${1:${TM_FILENAME_BASE}}'
+	
+	describe('<${1:${TM_FILENAME_BASE}} />', () => {
+	  const defaultProps = {}
+	  const wrapper = renderer.create(
+	    <Provider store={store}>
+	      <${1:${TM_FILENAME_BASE}} {...defaultProps} />
+	    </Provider>,
+	  )
+	
+	  test('render', () => {
+	    expect(wrapper).toMatchSnapshot()
+	  })
+	})
+	
+# setupReactTest
+snippet stest
+	import React from 'react'
+	import renderer from 'react-test-renderer'
+	
+	import { ${1:${TM_FILENAME_BASE}} } from '../${1:${TM_FILENAME_BASE}}'
+	
+	describe('<${1:${TM_FILENAME_BASE}} />', () => {
+	  const defaultProps = {}
+	  const wrapper = renderer.create(<${1:${TM_FILENAME_BASE}} {...defaultProps} />)
+	
+	  test('render', () => {
+	    expect(wrapper).toMatchSnapshot()
+	  })
+	})
+	
+# Testing `asynchronous test` block
+snippet testa
+	test('should ${1:first}', async () => { ${2:second} })
+	
+# Testing `test` block
+snippet test
+	test('should ${1:first}', () => { ${2:second} })
+	
+# exportDefault
+snippet exp
+	export default ${1:first}
+	
+# exportDestructing
+snippet exd
+	export { ${2:second} } from '${1:first}'
+	
+# exportAs
+snippet exa
+	export { ${2:second} as ${3:third} } from '${1:first}'
+	
+# Export named function
+snippet enf
+	export const ${1:first} = (${2:second}) => {${3:third}}
+	
+# Export default function
+snippet edf
+	export default (${1:first}) => {${2:second}}
+	
+# Export default named function
+snippet ednf
+	export default function ${1:first}(${2:second}) {${3:third}}
+	
+# Creates a method inside a class
+snippet met
+	${1:first} = (${2:second}) => {${3:third}}
+	
+# Creates a getter property inside a class
+snippet pge
+	get ${1:first}() {
+	  return this.${2:second}
+	}
+	
+# Creates a setter property inside a class
+snippet pse
+	set ${1:first}(${2:second}) {${3:third}}
+	
+# Creates a forEach statement
+snippet fre
+	${1:first}.forEach(${2:second} => {${3:third}})
+	
+# Iterating over property names of iterable objects
+snippet fof
+	for(let ${1:first} of ${2:second}) {${3:third}}
+	
+# Iterating over property values of iterable objects
+snippet fin
+	for(let ${1:first} in ${2:second}) {${3:third}}
+	
+# Creates an anonymous function
+snippet anfn
+	(${1:first}) => { ${2:second} }
+	
+# Creates a named function
+snippet nfn
+	const ${1:first} = (${2:second}) => { ${3:third} }
+	
+# Creates and assigns a local variable using object destructing
+snippet dob
+	const {${2:second}} = ${1:first}
+	
+# Creates and assigns a local variable using array destructing
+snippet dar
+	const [${2:second}] = ${1:first}
+	
+# Executes the given function at specified intervals
+snippet sti
+	setInterval(() => { ${1:first} }, ${2:second})
+	
+# Executes the given function after the specified delay
+snippet sto
+	setTimeout(() => { ${1:first} }, ${2:second})
+	
+# Creates and returns a new Promise in the standard ES7 syntax
+snippet prom
+	return new Promise((resolve, reject) => { ${1:first} })
+	
+# Creates and assigns a local variable using props destructing
+snippet cp
+	const { ${1:first} } = this.props
+	
+# Creates and assigns a local variable using state destructing
+snippet cs
+	const { ${1:first} } = this.state
+	
+# Adds a default constructor for it('', () => {})the class that contains props as arguments
+snippet rconst
+	constructor(props) {
+	  super(props)
+	
+	  this.state = {
+	     ${1:first}
+	  }
+	}
+	
+# Creates empty state object. To be used in a constructor.
+snippet est
+	state = { ${1:first} }
+	
+# Invoked once, only on the client (not on the server), immediately after the initial rendering occurs.
+snippet cdm
+	componentDidMount() { ${1:first} }
+	
+# Invoked before rendering when new props or state are being received. 
+snippet scu
+	shouldComponentUpdate(nextProps, nextState) { ${1:first} }
+	
+# Invoked immediately after the component's updates are flushed to the DOM.
+snippet cdup
+	componentDidUpdate(prevProps, prevState) { ${1:first}} 
+	
+# Invoked immediately before a component is unmounted from the DOM.
+snippet cwun
+	componentWillUnmount() {${1:first} }
+	
+# Invoked right before calling the render method, both on the initial mount and on subsequent updates.
+snippet gdsfp
+	static getDerivedStateFromProps(props, state) {${1:first}}
+	
+# Called right before mutations are made (e.g. before the DOM is updated)
+snippet gsbu
+	getSnapshotBeforeUpdate = (prevProps, prevState) => {${1:first}}
+	
+# Create React context
+snippet rcontext
+	const ${1:first} = React.createContext()
+	
+# Create ref statement used inside constructor
+snippet cref
+	this.${1:first}Ref = React.createRef()
+	
+# Performs a shallow merge of nextState into current state
+snippet sst
+	this.setState({${1:first}})
+	
+# Performs a shallow merge of nextState into current state
+snippet ssf
+	this.setState((state, props) => { return { ${1:first} }})
+	
+# Access component's props
+snippet props
+	this.props.${1:first}
+	
+# componentState
+snippet state
+	this.state.${1:first}
+	
+# Binds this to a method
+snippet bnd
+	this.${1:first} = this.${1:first}.bind(this)
+	
+# commentBigBlock
+snippet cmmb
+	/**
+	 * ${1:first}
+	 */
+	
+# hocComponentWithRedux
+snippet hocredux
+	import React from 'react'
+	import { connect } from 'react-redux'
+	import PropTypes from 'prop-types'
+	
+	export const mapStateToProps = state => ({})
+	
+	export const mapDispatchToProps = {}
+	
+	export const ${1:first} = (WrappedComponent) => {
+	  const hocComponent = ({ ...props }) => <WrappedComponent {...props} />
+	
+	  hocComponent.propTypes = {}
+	
+	  return hocComponent
+	}
+	
+	export default WrapperComponent => connect(mapStateToProps, mapDispatchToProps)(${1:first}(WrapperComponent))
+	
+	
+# hocComponent
+snippet hoc
+	import React from 'react'
+	import PropTypes from 'prop-types'
+	
+	export default (WrappedComponent) => {
+	  const hocComponent = ({ ...props }) => <WrappedComponent {...props} />
+	
+	  hocComponent.propTypes = {}
+	
+	  return hocComponent
+	}
+	
+	
+# typeofSnippet
+snippet tpf
+	typeof ${1:first}
+	
+
+# CSS Snippets:
+snippet .
+	${1} {
+		${2}
+	}
+snippet !
+	 !important
+snippet bdi:m+
+	-moz-border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};
+snippet bdi:m
+	-moz-border-image: ${1};
+snippet bdrz:m
+	-moz-border-radius: ${1};
+snippet bxsh:m+
+	-moz-box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};
+snippet bxsh:m
+	-moz-box-shadow: ${1};
+snippet bdi:w+
+	-webkit-border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};
+snippet bdi:w
+	-webkit-border-image: ${1};
+snippet bdrz:w
+	-webkit-border-radius: ${1};
+snippet bxsh:w+
+	-webkit-box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};
+snippet bxsh:w
+	-webkit-box-shadow: ${1};
+snippet @f
+	@font-face {
+		font-family: ${1};
+		src: url(${2});
+	}
+snippet @i
+	@import url(${1});
+snippet @m
+	@media ${1:print} {
+		${2}
+	}
+snippet bg+
+	background: #${1:FFF} url(${2}) ${3:0} ${4:0} ${5:no-repeat};
+snippet bga
+	background-attachment: ${1};
+snippet bga:f
+	background-attachment: fixed;
+snippet bga:s
+	background-attachment: scroll;
+snippet bgbk
+	background-break: ${1};
+snippet bgbk:bb
+	background-break: bounding-box;
+snippet bgbk:c
+	background-break: continuous;
+snippet bgbk:eb
+	background-break: each-box;
+snippet bgcp
+	background-clip: ${1};
+snippet bgcp:bb
+	background-clip: border-box;
+snippet bgcp:cb
+	background-clip: content-box;
+snippet bgcp:nc
+	background-clip: no-clip;
+snippet bgcp:pb
+	background-clip: padding-box;
+snippet bgc
+	background-color: #${1:FFF};
+snippet bgc:t
+	background-color: transparent;
+snippet bgi
+	background-image: url(${1});
+snippet bgi:n
+	background-image: none;
+snippet bgo
+	background-origin: ${1};
+snippet bgo:bb
+	background-origin: border-box;
+snippet bgo:cb
+	background-origin: content-box;
+snippet bgo:pb
+	background-origin: padding-box;
+snippet bgpx
+	background-position-x: ${1};
+snippet bgpy
+	background-position-y: ${1};
+snippet bgp
+	background-position: ${1:0} ${2:0};
+snippet bgr
+	background-repeat: ${1};
+snippet bgr:n
+	background-repeat: no-repeat;
+snippet bgr:x
+	background-repeat: repeat-x;
+snippet bgr:y
+	background-repeat: repeat-y;
+snippet bgr:r
+	background-repeat: repeat;
+snippet bgz
+	background-size: ${1};
+snippet bgz:a
+	background-size: auto;
+snippet bgz:ct
+	background-size: contain;
+snippet bgz:cv
+	background-size: cover;
+snippet bg
+	background: ${1};
+snippet bg:ie
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${1}',sizingMethod='${2:crop}');
+snippet bg:n
+	background: none;
+snippet bd+
+	border: ${1:1px} ${2:solid} #${3:000};
+snippet bdb+
+	border-bottom: ${1:1px} ${2:solid} #${3:000};
+snippet bdbc
+	border-bottom-color: #${1:000};
+snippet bdbi
+	border-bottom-image: url(${1});
+snippet bdbi:n
+	border-bottom-image: none;
+snippet bdbli
+	border-bottom-left-image: url(${1});
+snippet bdbli:c
+	border-bottom-left-image: continue;
+snippet bdbli:n
+	border-bottom-left-image: none;
+snippet bdblrz
+	border-bottom-left-radius: ${1};
+snippet bdbri
+	border-bottom-right-image: url(${1});
+snippet bdbri:c
+	border-bottom-right-image: continue;
+snippet bdbri:n
+	border-bottom-right-image: none;
+snippet bdbrrz
+	border-bottom-right-radius: ${1};
+snippet bdbs
+	border-bottom-style: ${1};
+snippet bdbs:n
+	border-bottom-style: none;
+snippet bdbw
+	border-bottom-width: ${1};
+snippet bdb
+	border-bottom: ${1};
+snippet bdb:n
+	border-bottom: none;
+snippet bdbk
+	border-break: ${1};
+snippet bdbk:c
+	border-break: close;
+snippet bdcl
+	border-collapse: ${1};
+snippet bdcl:c
+	border-collapse: collapse;
+snippet bdcl:s
+	border-collapse: separate;
+snippet bdc
+	border-color: #${1:000};
+snippet bdci
+	border-corner-image: url(${1});
+snippet bdci:c
+	border-corner-image: continue;
+snippet bdci:n
+	border-corner-image: none;
+snippet bdf
+	border-fit: ${1};
+snippet bdf:c
+	border-fit: clip;
+snippet bdf:of
+	border-fit: overwrite;
+snippet bdf:ow
+	border-fit: overwrite;
+snippet bdf:r
+	border-fit: repeat;
+snippet bdf:sc
+	border-fit: scale;
+snippet bdf:sp
+	border-fit: space;
+snippet bdf:st
+	border-fit: stretch;
+snippet bdi
+	border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};
+snippet bdi:n
+	border-image: none;
+snippet bdl+
+	border-left: ${1:1px} ${2:solid} #${3:000};
+snippet bdlc
+	border-left-color: #${1:000};
+snippet bdli
+	border-left-image: url(${1});
+snippet bdli:n
+	border-left-image: none;
+snippet bdls
+	border-left-style: ${1};
+snippet bdls:n
+	border-left-style: none;
+snippet bdlw
+	border-left-width: ${1};
+snippet bdl
+	border-left: ${1};
+snippet bdl:n
+	border-left: none;
+snippet bdlt
+	border-length: ${1};
+snippet bdlt:a
+	border-length: auto;
+snippet bdrz
+	border-radius: ${1};
+snippet bdr+
+	border-right: ${1:1px} ${2:solid} #${3:000};
+snippet bdrc
+	border-right-color: #${1:000};
+snippet bdri
+	border-right-image: url(${1});
+snippet bdri:n
+	border-right-image: none;
+snippet bdrs
+	border-right-style: ${1};
+snippet bdrs:n
+	border-right-style: none;
+snippet bdrw
+	border-right-width: ${1};
+snippet bdr
+	border-right: ${1};
+snippet bdr:n
+	border-right: none;
+snippet bdsp
+	border-spacing: ${1};
+snippet bds
+	border-style: ${1};
+snippet bds:ds
+	border-style: dashed;
+snippet bds:dtds
+	border-style: dot-dash;
+snippet bds:dtdtds
+	border-style: dot-dot-dash;
+snippet bds:dt
+	border-style: dotted;
+snippet bds:db
+	border-style: double;
+snippet bds:g
+	border-style: groove;
+snippet bds:h
+	border-style: hidden;
+snippet bds:i
+	border-style: inset;
+snippet bds:n
+	border-style: none;
+snippet bds:o
+	border-style: outset;
+snippet bds:r
+	border-style: ridge;
+snippet bds:s
+	border-style: solid;
+snippet bds:w
+	border-style: wave;
+snippet bdt+
+	border-top: ${1:1px} ${2:solid} #${3:000};
+snippet bdtc
+	border-top-color: #${1:000};
+snippet bdti
+	border-top-image: url(${1});
+snippet bdti:n
+	border-top-image: none;
+snippet bdtli
+	border-top-left-image: url(${1});
+snippet bdtli:c
+	border-corner-image: continue;
+snippet bdtli:n
+	border-corner-image: none;
+snippet bdtlrz
+	border-top-left-radius: ${1};
+snippet bdtri
+	border-top-right-image: url(${1});
+snippet bdtri:c
+	border-top-right-image: continue;
+snippet bdtri:n
+	border-top-right-image: none;
+snippet bdtrrz
+	border-top-right-radius: ${1};
+snippet bdts
+	border-top-style: ${1};
+snippet bdts:n
+	border-top-style: none;
+snippet bdtw
+	border-top-width: ${1};
+snippet bdt
+	border-top: ${1};
+snippet bdt:n
+	border-top: none;
+snippet bdw
+	border-width: ${1};
+snippet bd
+	border: ${1};
+snippet bd:n
+	border: none;
+snippet b
+	bottom: ${1};
+snippet b:a
+	bottom: auto;
+snippet bxsh+
+	box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};
+snippet bxsh
+	box-shadow: ${1};
+snippet bxsh:n
+	box-shadow: none;
+snippet bxz
+	box-sizing: ${1};
+snippet bxz:bb
+	box-sizing: border-box;
+snippet bxz:cb
+	box-sizing: content-box;
+snippet cps
+	caption-side: ${1};
+snippet cps:b
+	caption-side: bottom;
+snippet cps:t
+	caption-side: top;
+snippet cl
+	clear: ${1};
+snippet cl:b
+	clear: both;
+snippet cl:l
+	clear: left;
+snippet cl:n
+	clear: none;
+snippet cl:r
+	clear: right;
+snippet cp
+	clip: ${1};
+snippet cp:a
+	clip: auto;
+snippet cp:r
+	clip: rect(${1:0} ${2:0} ${3:0} ${4:0});
+snippet c
+	color: #${1:000};
+snippet ct
+	content: ${1};
+snippet ct:a
+	content: attr(${1});
+snippet ct:cq
+	content: close-quote;
+snippet ct:c
+	content: counter(${1});
+snippet ct:cs
+	content: counters(${1});
+snippet ct:ncq
+	content: no-close-quote;
+snippet ct:noq
+	content: no-open-quote;
+snippet ct:n
+	content: normal;
+snippet ct:oq
+	content: open-quote;
+snippet coi
+	counter-increment: ${1};
+snippet cor
+	counter-reset: ${1};
+snippet cur
+	cursor: ${1};
+snippet cur:a
+	cursor: auto;
+snippet cur:c
+	cursor: crosshair;
+snippet cur:d
+	cursor: default;
+snippet cur:ha
+	cursor: hand;
+snippet cur:he
+	cursor: help;
+snippet cur:m
+	cursor: move;
+snippet cur:p
+	cursor: pointer;
+snippet cur:t
+	cursor: text;
+snippet d
+	display: ${1};
+snippet d:mib
+	display: -moz-inline-box;
+snippet d:mis
+	display: -moz-inline-stack;
+snippet d:b
+	display: block;
+snippet d:cp
+	display: compact;
+snippet d:ib
+	display: inline-block;
+snippet d:itb
+	display: inline-table;
+snippet d:i
+	display: inline;
+snippet d:li
+	display: list-item;
+snippet d:n
+	display: none;
+snippet d:ri
+	display: run-in;
+snippet d:tbcp
+	display: table-caption;
+snippet d:tbc
+	display: table-cell;
+snippet d:tbclg
+	display: table-column-group;
+snippet d:tbcl
+	display: table-column;
+snippet d:tbfg
+	display: table-footer-group;
+snippet d:tbhg
+	display: table-header-group;
+snippet d:tbrg
+	display: table-row-group;
+snippet d:tbr
+	display: table-row;
+snippet d:tb
+	display: table;
+snippet ec
+	empty-cells: ${1};
+snippet ec:h
+	empty-cells: hide;
+snippet ec:s
+	empty-cells: show;
+snippet exp
+	expression()
+snippet fl
+	float: ${1};
+snippet fl:l
+	float: left;
+snippet fl:n
+	float: none;
+snippet fl:r
+	float: right;
+snippet f+
+	font: ${1:1em} ${2:Arial},${3:sans-serif};
+snippet fef
+	font-effect: ${1};
+snippet fef:eb
+	font-effect: emboss;
+snippet fef:eg
+	font-effect: engrave;
+snippet fef:n
+	font-effect: none;
+snippet fef:o
+	font-effect: outline;
+snippet femp
+	font-emphasize-position: ${1};
+snippet femp:a
+	font-emphasize-position: after;
+snippet femp:b
+	font-emphasize-position: before;
+snippet fems
+	font-emphasize-style: ${1};
+snippet fems:ac
+	font-emphasize-style: accent;
+snippet fems:c
+	font-emphasize-style: circle;
+snippet fems:ds
+	font-emphasize-style: disc;
+snippet fems:dt
+	font-emphasize-style: dot;
+snippet fems:n
+	font-emphasize-style: none;
+snippet fem
+	font-emphasize: ${1};
+snippet ff
+	font-family: ${1};
+snippet ff:c
+	font-family: ${1:'Monotype Corsiva','Comic Sans MS'},cursive;
+snippet ff:f
+	font-family: ${1:Capitals,Impact},fantasy;
+snippet ff:m
+	font-family: ${1:Monaco,'Courier New'},monospace;
+snippet ff:ss
+	font-family: ${1:Helvetica,Arial},sans-serif;
+snippet ff:s
+	font-family: ${1:Georgia,'Times New Roman'},serif;
+snippet fza
+	font-size-adjust: ${1};
+snippet fza:n
+	font-size-adjust: none;
+snippet fz
+	font-size: ${1};
+snippet fsm
+	font-smooth: ${1};
+snippet fsm:aw
+	font-smooth: always;
+snippet fsm:a
+	font-smooth: auto;
+snippet fsm:n
+	font-smooth: never;
+snippet fst
+	font-stretch: ${1};
+snippet fst:c
+	font-stretch: condensed;
+snippet fst:e
+	font-stretch: expanded;
+snippet fst:ec
+	font-stretch: extra-condensed;
+snippet fst:ee
+	font-stretch: extra-expanded;
+snippet fst:n
+	font-stretch: normal;
+snippet fst:sc
+	font-stretch: semi-condensed;
+snippet fst:se
+	font-stretch: semi-expanded;
+snippet fst:uc
+	font-stretch: ultra-condensed;
+snippet fst:ue
+	font-stretch: ultra-expanded;
+snippet fs
+	font-style: ${1};
+snippet fs:i
+	font-style: italic;
+snippet fs:n
+	font-style: normal;
+snippet fs:o
+	font-style: oblique;
+snippet fv
+	font-variant: ${1};
+snippet fv:n
+	font-variant: normal;
+snippet fv:sc
+	font-variant: small-caps;
+snippet fw
+	font-weight: ${1};
+snippet fw:b
+	font-weight: bold;
+snippet fw:br
+	font-weight: bolder;
+snippet fw:lr
+	font-weight: lighter;
+snippet fw:n
+	font-weight: normal;
+snippet f
+	font: ${1};
+snippet h
+	height: ${1};
+snippet h:a
+	height: auto;
+snippet l
+	left: ${1};
+snippet l:a
+	left: auto;
+snippet lts
+	letter-spacing: ${1};
+snippet lh
+	line-height: ${1};
+snippet lisi
+	list-style-image: url(${1});
+snippet lisi:n
+	list-style-image: none;
+snippet lisp
+	list-style-position: ${1};
+snippet lisp:i
+	list-style-position: inside;
+snippet lisp:o
+	list-style-position: outside;
+snippet list
+	list-style-type: ${1};
+snippet list:c
+	list-style-type: circle;
+snippet list:dclz
+	list-style-type: decimal-leading-zero;
+snippet list:dc
+	list-style-type: decimal;
+snippet list:d
+	list-style-type: disc;
+snippet list:lr
+	list-style-type: lower-roman;
+snippet list:n
+	list-style-type: none;
+snippet list:s
+	list-style-type: square;
+snippet list:ur
+	list-style-type: upper-roman;
+snippet lis
+	list-style: ${1};
+snippet lis:n
+	list-style: none;
+snippet mb
+	margin-bottom: ${1};
+snippet mb:a
+	margin-bottom: auto;
+snippet ml
+	margin-left: ${1};
+snippet ml:a
+	margin-left: auto;
+snippet mr
+	margin-right: ${1};
+snippet mr:a
+	margin-right: auto;
+snippet mt
+	margin-top: ${1};
+snippet mt:a
+	margin-top: auto;
+snippet m
+	margin: ${1};
+snippet m:4
+	margin: ${1:0} ${2:0} ${3:0} ${4:0};
+snippet m:3
+	margin: ${1:0} ${2:0} ${3:0};
+snippet m:2
+	margin: ${1:0} ${2:0};
+snippet m:0
+	margin: 0;
+snippet m:a
+	margin: auto;
+snippet mah
+	max-height: ${1};
+snippet mah:n
+	max-height: none;
+snippet maw
+	max-width: ${1};
+snippet maw:n
+	max-width: none;
+snippet mih
+	min-height: ${1};
+snippet miw
+	min-width: ${1};
+snippet op
+	opacity: ${1};
+snippet op:ie
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100});
+snippet op:ms
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100})';
+snippet orp
+	orphans: ${1};
+snippet o+
+	outline: ${1:1px} ${2:solid} #${3:000};
+snippet oc
+	outline-color: ${1:#000};
+snippet oc:i
+	outline-color: invert;
+snippet oo
+	outline-offset: ${1};
+snippet os
+	outline-style: ${1};
+snippet ow
+	outline-width: ${1};
+snippet o
+	outline: ${1};
+snippet o:n
+	outline: none;
+snippet ovs
+	overflow-style: ${1};
+snippet ovs:a
+	overflow-style: auto;
+snippet ovs:mq
+	overflow-style: marquee;
+snippet ovs:mv
+	overflow-style: move;
+snippet ovs:p
+	overflow-style: panner;
+snippet ovs:s
+	overflow-style: scrollbar;
+snippet ovx
+	overflow-x: ${1};
+snippet ovx:a
+	overflow-x: auto;
+snippet ovx:h
+	overflow-x: hidden;
+snippet ovx:s
+	overflow-x: scroll;
+snippet ovx:v
+	overflow-x: visible;
+snippet ovy
+	overflow-y: ${1};
+snippet ovy:a
+	overflow-y: auto;
+snippet ovy:h
+	overflow-y: hidden;
+snippet ovy:s
+	overflow-y: scroll;
+snippet ovy:v
+	overflow-y: visible;
+snippet ov
+	overflow: ${1};
+snippet ov:a
+	overflow: auto;
+snippet ov:h
+	overflow: hidden;
+snippet ov:s
+	overflow: scroll;
+snippet ov:v
+	overflow: visible;
+snippet pb
+	padding-bottom: ${1};
+snippet pl
+	padding-left: ${1};
+snippet pr
+	padding-right: ${1};
+snippet pt
+	padding-top: ${1};
+snippet p
+	padding: ${1};
+snippet p:4
+	padding: ${1:0} ${2:0} ${3:0} ${4:0};
+snippet p:3
+	padding: ${1:0} ${2:0} ${3:0};
+snippet p:2
+	padding: ${1:0} ${2:0};
+snippet p:0
+	padding: 0;
+snippet pgba
+	page-break-after: ${1};
+snippet pgba:aw
+	page-break-after: always;
+snippet pgba:a
+	page-break-after: auto;
+snippet pgba:l
+	page-break-after: left;
+snippet pgba:r
+	page-break-after: right;
+snippet pgbb
+	page-break-before: ${1};
+snippet pgbb:aw
+	page-break-before: always;
+snippet pgbb:a
+	page-break-before: auto;
+snippet pgbb:l
+	page-break-before: left;
+snippet pgbb:r
+	page-break-before: right;
+snippet pgbi
+	page-break-inside: ${1};
+snippet pgbi:a
+	page-break-inside: auto;
+snippet pgbi:av
+	page-break-inside: avoid;
+snippet pos
+	position: ${1};
+snippet pos:a
+	position: absolute;
+snippet pos:f
+	position: fixed;
+snippet pos:r
+	position: relative;
+snippet pos:s
+	position: static;
+snippet q
+	quotes: ${1};
+snippet q:en
+	quotes: '\201C' '\201D' '\2018' '\2019';
+snippet q:n
+	quotes: none;
+snippet q:ru
+	quotes: '\00AB' '\00BB' '\201E' '\201C';
+snippet rz
+	resize: ${1};
+snippet rz:b
+	resize: both;
+snippet rz:h
+	resize: horizontal;
+snippet rz:n
+	resize: none;
+snippet rz:v
+	resize: vertical;
+snippet r
+	right: ${1};
+snippet r:a
+	right: auto;
+snippet tbl
+	table-layout: ${1};
+snippet tbl:a
+	table-layout: auto;
+snippet tbl:f
+	table-layout: fixed;
+snippet tal
+	text-align-last: ${1};
+snippet tal:a
+	text-align-last: auto;
+snippet tal:c
+	text-align-last: center;
+snippet tal:l
+	text-align-last: left;
+snippet tal:r
+	text-align-last: right;
+snippet ta
+	text-align: ${1};
+snippet ta:c
+	text-align: center;
+snippet ta:l
+	text-align: left;
+snippet ta:r
+	text-align: right;
+snippet td
+	text-decoration: ${1};
+snippet td:l
+	text-decoration: line-through;
+snippet td:n
+	text-decoration: none;
+snippet td:o
+	text-decoration: overline;
+snippet td:u
+	text-decoration: underline;
+snippet te
+	text-emphasis: ${1};
+snippet te:ac
+	text-emphasis: accent;
+snippet te:a
+	text-emphasis: after;
+snippet te:b
+	text-emphasis: before;
+snippet te:c
+	text-emphasis: circle;
+snippet te:ds
+	text-emphasis: disc;
+snippet te:dt
+	text-emphasis: dot;
+snippet te:n
+	text-emphasis: none;
+snippet th
+	text-height: ${1};
+snippet th:a
+	text-height: auto;
+snippet th:f
+	text-height: font-size;
+snippet th:m
+	text-height: max-size;
+snippet th:t
+	text-height: text-size;
+snippet ti
+	text-indent: ${1};
+snippet ti:-
+	text-indent: -9999px;
+snippet tj
+	text-justify: ${1};
+snippet tj:a
+	text-justify: auto;
+snippet tj:d
+	text-justify: distribute;
+snippet tj:ic
+	text-justify: inter-cluster;
+snippet tj:ii
+	text-justify: inter-ideograph;
+snippet tj:iw
+	text-justify: inter-word;
+snippet tj:k
+	text-justify: kashida;
+snippet tj:t
+	text-justify: tibetan;
+snippet to+
+	text-outline: ${1:0} ${2:0} #${3:000};
+snippet to
+	text-outline: ${1};
+snippet to:n
+	text-outline: none;
+snippet tr
+	text-replace: ${1};
+snippet tr:n
+	text-replace: none;
+snippet tsh+
+	text-shadow: ${1:0} ${2:0} ${3:0} #${4:000};
+snippet tsh
+	text-shadow: ${1};
+snippet tsh:n
+	text-shadow: none;
+snippet tt
+	text-transform: ${1};
+snippet tt:c
+	text-transform: capitalize;
+snippet tt:l
+	text-transform: lowercase;
+snippet tt:n
+	text-transform: none;
+snippet tt:u
+	text-transform: uppercase;
+snippet tw
+	text-wrap: ${1};
+snippet tw:no
+	text-wrap: none;
+snippet tw:n
+	text-wrap: normal;
+snippet tw:s
+	text-wrap: suppress;
+snippet tw:u
+	text-wrap: unrestricted;
+snippet t
+	top: ${1};
+snippet t:a
+	top: auto;
+snippet va
+	vertical-align: ${1};
+snippet va:bl
+	vertical-align: baseline;
+snippet va:b
+	vertical-align: bottom;
+snippet va:m
+	vertical-align: middle;
+snippet va:sub
+	vertical-align: sub;
+snippet va:sup
+	vertical-align: super;
+snippet va:tb
+	vertical-align: text-bottom;
+snippet va:tt
+	vertical-align: text-top;
+snippet va:t
+	vertical-align: top;
+snippet v
+	visibility: ${1};
+snippet v:c
+	visibility: collapse;
+snippet v:h
+	visibility: hidden;
+snippet v:v
+	visibility: visible;
+snippet whsc
+	white-space-collapse: ${1};
+snippet whsc:ba
+	white-space-collapse: break-all;
+snippet whsc:bs
+	white-space-collapse: break-strict;
+snippet whsc:k
+	white-space-collapse: keep-all;
+snippet whsc:l
+	white-space-collapse: loose;
+snippet whsc:n
+	white-space-collapse: normal;
+snippet whs
+	white-space: ${1};
+snippet whs:n
+	white-space: normal;
+snippet whs:nw
+	white-space: nowrap;
+snippet whs:pl
+	white-space: pre-line;
+snippet whs:pw
+	white-space: pre-wrap;
+snippet whs:p
+	white-space: pre;
+snippet wid
+	widows: ${1};
+snippet w
+	width: ${1};
+snippet w:a
+	width: auto;
+snippet wob
+	word-break: ${1};
+snippet wob:ba
+	word-break: break-all;
+snippet wob:bs
+	word-break: break-strict;
+snippet wob:k
+	word-break: keep-all;
+snippet wob:l
+	word-break: loose;
+snippet wob:n
+	word-break: normal;
+snippet wos
+	word-spacing: ${1};
+snippet wow
+	word-wrap: ${1};
+snippet wow:no
+	word-wrap: none;
+snippet wow:n
+	word-wrap: normal;
+snippet wow:s
+	word-wrap: suppress;
+snippet wow:u
+	word-wrap: unrestricted;
+snippet z
+	z-index: ${1};
+snippet z:a
+	z-index: auto;
+snippet zoo
+	zoom: 1;
